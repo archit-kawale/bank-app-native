@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Text, SafeAreaView, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, SafeAreaView, TouchableOpacity, StyleSheet, Platform, StatusBar } from "react-native";
 
 const Profile = () => {
   const router = useRouter();
@@ -9,7 +9,7 @@ const Profile = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text style={{ color: "#fff" }}>Profile</Text>
 
       <TouchableOpacity style={styles.btnContainer} onPress={onLogout}>
@@ -17,11 +17,16 @@ const Profile = () => {
       </TouchableOpacity>
     </SafeAreaView>
   );
+
 };
 
 export default Profile;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
   btnContainer: {
     backgroundColor: "#2E456A",
     padding: 14,
