@@ -45,6 +45,7 @@ const Login = () => {
         </View>
         <TextInput
           style={styles.input}
+          secureTextEntry={true}
           placeholder="Password"
           placeholderTextColor="#576a8796"
         />
